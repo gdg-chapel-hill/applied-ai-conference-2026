@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applied AI Conference 2026 — July 18 · Chapel Hill, NC</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #6366f1;
+      --accent2: #a78bfa;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --tag-technical: #1e3a5f;
+      --tag-lightning: #3d2a00;
+      --tag-demo: #1a3320;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #e2e8f0, var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta span::before { content: ''; }
+    .meta .sep { color: var(--border); }
+
+    /* ── Layout ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Schedule ── */
+    .schedule { display: flex; flex-direction: column; gap: 0; }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 0 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .slot:last-child { border-bottom: none; }
+
+    .slot.break {
+      padding: 0.55rem 0;
+      opacity: 0.4;
+    }
+
+    .slot.lunch {
+      padding: 0.7rem 0;
+      opacity: 0.6;
+    }
+
+    .time {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      padding-top: 0.15rem;
+      white-space: nowrap;
+    }
+
+    .slot.break .time,
+    .slot.lunch .time { font-size: 0.72rem; }
+
+    .slot-content {}
+
+    .talk-title {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .speaker-name {
+      font-size: 0.82rem;
+      color: var(--accent2);
+      margin-bottom: 0.5rem;
+    }
+
+    .speaker-bio {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .tag.technical { background: var(--tag-technical); color: #7eb8f7; }
+    .tag.lightning  { background: var(--tag-lightning);  color: #fbbf24; }
+    .tag.demo       { background: var(--tag-demo);       color: #6ee7b7; }
+
+    .break-label { font-size: 0.72rem; color: var(--muted); font-style: italic; }
+    .lunch-label { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--accent2); text-decoration: none; }
+
+    @media (max-width: 520px) {
+      .slot { grid-template-columns: 1fr; gap: 0.25rem; }
+      .time { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Tentative Schedule</div>
+  <h1>Applied AI Conference 2026</h1>
+  <div class="meta">
+    <span>📅 Saturday, July 18, 2026</span>
+    <span class="sep">·</span>
+    <span>💻 Virtual</span>
+    <span class="sep">·</span>
+    <span>9:00 AM – 6:15 PM ET</span>
+  </div>
+</header>
+
+<main>
+  <p class="section-label">Day Schedule · 11 Sessions</p>
+
+  <div class="schedule">
+
+    <!-- Session 1 -->
+    <div class="slot">
+      <div class="time">9:00 – 9:30 AM</div>
+      <div class="slot-content">
+        <div class="talk-title">I Don't Trust AI Agents (And Neither Should You): Building Production-Ready Architectures</div>
+        <div class="speaker-name">Morgan Willis</div>
+        <div class="speaker-bio">Principal Cloud Technologist @ AWS</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">9:30 – 9:45 AM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 2 -->
+    <div class="slot">
+      <div class="time">9:45 – 10:15 AM</div>
+      <div class="slot-content">
+        <div class="talk-title">Shipping Safe AI Agents: A Production Safety Playbook from 2,500 Deployments</div>
+        <div class="speaker-name">Lorenzo Satta Chiris</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">10:15 – 10:30 AM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 3 -->
+    <div class="slot">
+      <div class="time">10:30 – 11:15 AM</div>
+      <div class="slot-content">
+        <div class="talk-title">From Vibes to Verified: Building an Autonomous Eval + Fix Engine for AI Agents</div>
+        <div class="speaker-name">Shashank Agarwal</div>
+        <div class="speaker-bio">Founder &amp; CEO, Noveum.ai · Ex-AWS SageMaker (2nd Engineer)</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">45 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">11:15 – 11:30 AM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 4 -->
+    <div class="slot">
+      <div class="time">11:30 – 11:45 AM</div>
+      <div class="slot-content">
+        <div class="talk-title">AI Can Write Code. It Can't See the System.</div>
+        <div class="speaker-name">Eshwar Yaddanapudi</div>
+        <div class="speaker-bio">Creator of Fluent-Graph · Ex-EM, ServiceNow</div>
+        <div class="tags"><span class="tag lightning">⚡ Lightning</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">15 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">11:45 AM – 12:00 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Lunch -->
+    <div class="slot lunch">
+      <div class="time">12:00 – 1:00 PM</div>
+      <div class="lunch-label">🍽 Lunch</div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">1:00 – 1:15 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 5 -->
+    <div class="slot">
+      <div class="time">1:15 – 1:45 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">When Agents Break: Designing Fault-Tolerant Multi-Agent Orchestration Beyond LangChain</div>
+        <div class="speaker-name">Ravi Kiran Pagidi &amp; Krishna Tirupati</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">1:45 – 2:00 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 6 -->
+    <div class="slot">
+      <div class="time">2:00 – 2:15 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">Using Claude's web_search Tool to Track AI Citations: An Open-Source Python Pattern</div>
+        <div class="speaker-name">Ignacio Lopez</div>
+        <div class="speaker-bio">Fractional Head of AI, Work-Smart.ai · Bilingual EN/ES</div>
+        <div class="tags"><span class="tag lightning">⚡ Lightning</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">15 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">2:15 – 2:30 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 7 -->
+    <div class="slot">
+      <div class="time">2:30 – 3:00 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">Agent Memory: Building Stateful AI Agents That Remember, Adapt, and Work Across Time</div>
+        <div class="speaker-name">Ben Labaschin</div>
+        <div class="speaker-bio">Principal AI/ML Engineer @ Workhelix · O'Reilly Author</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">3:00 – 3:15 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 8 -->
+    <div class="slot">
+      <div class="time">3:15 – 4:00 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">UISurf: Toward Universal UI Automation with Cross-Environment Agents</div>
+        <div class="speaker-name">Henry Ruiz</div>
+        <div class="speaker-bio">Research Scientist @ Texas A&amp;M AgriLife Research · GDE in AI &amp; Google Cloud</div>
+        <div class="tags"><span class="tag demo">🔧 Demo</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">45 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">4:00 – 4:15 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 9 -->
+    <div class="slot">
+      <div class="time">4:15 – 4:45 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">10x Engineering: Battle-Tested Lessons from Transforming Teams with GenAI</div>
+        <div class="speaker-name">Dennis Nerush</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">4:45 – 5:00 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 10 -->
+    <div class="slot">
+      <div class="time">5:00 – 5:30 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">From Prompts to Design-Driven Specs: Lessons in Taming AI Chaos</div>
+        <div class="speaker-name">Steve Fox</div>
+        <div class="tags"><span class="tag technical">Technical</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+    <div class="slot break">
+      <div class="time">5:30 – 5:45 PM</div>
+      <div class="break-label">Break</div>
+    </div>
+
+    <!-- Session 11 -->
+    <div class="slot">
+      <div class="time">5:45 – 6:15 PM</div>
+      <div class="slot-content">
+        <div class="talk-title">Spec-Driven Agent Development with ADK &amp; Antigravity</div>
+        <div class="speaker-name">Jitendra Gupta</div>
+        <div class="speaker-bio">Enterprise Architect — Cloud &amp; AI @ EPAM Systems</div>
+        <div class="tags"><span class="tag demo">🔧 Demo</span><span class="tag" style="background:#1c2a1c;color:#86efac;font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:4px;">30 min</span></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>Organized by <a href="https://gdg.community.dev/gdg-chapel-hill/" target="_blank">GDG Chapel Hill</a> · Schedule subject to change · <em>Acceptance pending speaker confirmation</em></p>
+</footer>
+
+</body>
+</html>
